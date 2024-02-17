@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('templates/head')%>
   <body>
-    <h1><%= title %></h1>
+    <h1 class="primary"><%= title %></h1>
+    <div class="alert alert-primary" role="alert">
+      <strong>primary</strong>
+    </div>
     <p>Welcome to <%= title %></p>
   </body>
 </html>
