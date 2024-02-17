@@ -5,24 +5,63 @@
     <%- include('templates/header')%>
 
     <main>
-      <div class="m-5 d-flex align-items-center" id="WellcomeScreen">
-        <h2>Wellcome - <span class="text-primary"><%=firstname%></span></h2>
-        <h3 id="currentDate" class="text-secondary"></h3>
+      <!-- Time  -->
+      <div
+        class="m-5 container-fluid align-items-bottom col-md-auto"
+        id="WellcomeScreen"
+      >
+        <div class="row">
+          <div class="col">
+            <h2>Wellcome - <span class="text-primary"><%=firstname%></span></h2>
+          </div>
+          <div class="col">
+            <h4 id="currentDate" class="text-secondary text-end"></h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Students -->
+      <div class="container">
+        <div class="row">
+          <% studentsData.forEach((student, index) => { %>
+            <div class="col-md-3"> <!-- Adjust the grid size based on your needs -->
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title"><%= student.fullname %></h5>
+                  <p class="card-text">
+                    <strong>Last Time Present:</strong> <a href=""><%= student.lastTimePresent %></a><br>
+                    <strong>Ranks:</strong> <%= student.ranks %><br>
+                    <strong>Hours:</strong> <%= student.hours %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% if ((index + 1) % 4 === 0) { %> <!-- Start a new row every 3 students (adjust as needed) -->
+              </div>
+              <div class="row">
+            <% } %>
+          <% }); %>
+        </div>
       </div>
     </main>
   </body>
   <script>
-    let currentDate = new Date();
+    // Time function
+    function setTime() {
+      let currentDate = new Date();
+      // Format the date
+      let formattedDate = currentDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
 
-    // Format the date as desired (you can customize this format)
-    let formattedDate = currentDate.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-
-    // Update the content of the currentDate element using jQuery
-    $("#currentDate").text(formattedDate);
+      // Update the content of the currentDate element using jQuery
+      $("#currentDate").text(formattedDate);
+    }
+    
+    setTime();
+    //
   </script>
 </html>
