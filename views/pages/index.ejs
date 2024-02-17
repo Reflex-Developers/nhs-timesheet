@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <%- include('templates/head')%>
+  <body>
+    <%- include('templates/header')%>
+
+    <main>
+      <div class="m-5 d-flex align-items-center" id="WellcomeScreen">
+        <h2>Wellcome - <span class="text-primary"><%=firstname%></span></h2>
+        <h3 id="currentDate" class="text-secondary"></h3>
+      </div>
+    </main>
+  </body>
+  <script>
+    let currentDate = new Date();
+
+    // Format the date as desired (you can customize this format)
+    let formattedDate = currentDate.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    // Update the content of the currentDate element using jQuery
+    $("#currentDate").text(formattedDate);
+  </script>
+</html>

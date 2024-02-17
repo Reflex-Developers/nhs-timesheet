@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+  <a class="navbar-brand">
+    <img src="/images/nhs-logo.png" alt="" height="75" />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link fs-4 <%= activePage === 'home' ? 'active' : '' %>"  href="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-4 <%= activePage === 'create' ? 'active' : '' %>"  href="/create">Create</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-4 <%= activePage === 'manage' ? 'active' : '' %>"  href="/manage">Manage</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-4" href="/logout">Log out</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand">
+          <img class="round-circle" src="/images/nhs-logo.png" alt="pfp" height="50"/>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
