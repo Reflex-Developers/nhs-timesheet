@@ -5,59 +5,64 @@ const router = express.Router();
 
 const dummyData = [
   { 
-    image: "/nhs-logo.png",
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
-  },
-  { 
-    image: "/nhs-logo.png",
+  },{ 
+    image: "/images/nhs-logo.png",
     fullname: "Patrik Takacs",
     lastTimePresent: "02/17/2024",
-    ranks: "VP, Member",
+    ranks: ["VP", "Member"],
+    hours: "20.5h"
+  },{ 
+    image: "/images/nhs-logo.png",
+    fullname: "Patrik Takacs",
+    lastTimePresent: "02/17/2024",
+    ranks: ["VP", "Member"],
+    hours: "20.5h"
+  },{ 
+    image: "/images/nhs-logo.png",
+    fullname: "Patrik Takacs",
+    lastTimePresent: "02/17/2024",
+    ranks: ["VP", "Member"],
     hours: "20.5h"
   },
 ];

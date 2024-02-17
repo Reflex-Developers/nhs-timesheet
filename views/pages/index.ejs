@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <%- include('templates/head')%>
-  <body>
+<%- include('templates/head')%>
+
+<body>
     <%- include('templates/header')%>
-
     <main>
-      <!-- Time  -->
-      <div
-        class="m-5 container-fluid align-items-bottom col-md-auto"
-        id="WellcomeScreen"
-      >
-        <div class="row">
-          <div class="col">
-            <h2>Wellcome - <span class="text-primary"><%=firstname%></span></h2>
-          </div>
-          <div class="col">
-            <h4 id="currentDate" class="text-secondary text-end"></h4>
-          </div>
-        </div>
-      </div>
-
-      <!-- Students -->
-      <div class="container">
-        <div class="row">
-          <% studentsData.forEach((student, index) => { %>
-            <div class="col-md-3"> <!-- Adjust the grid size based on your needs -->
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title"><%= student.fullname %></h5>
-                  <p class="card-text">
-                    <strong>Last Time Present:</strong> <a href=""><%= student.lastTimePresent %></a><br>
-                    <strong>Ranks:</strong> <%= student.ranks %><br>
-                    <strong>Hours:</strong> <%= student.hours %>
-                  </p>
-                </div>
+        <!-- Time  -->
+        <div class="container my-5">
+            <div class="row justify-content-around">
+              <div class="col-md-auto">
+                <h2>Wellcome - <span class="text-primary"><%=firstname%></span></h2>
+              </div>
+              <div class="col-md-auto">
+                <h4 id="currentDate" class="text-secondary"></h4>
               </div>
             </div>
-            <% if ((index + 1) % 4 === 0) { %> <!-- Start a new row every 3 students (adjust as needed) -->
-              </div>
-              <div class="row">
-            <% } %>
-          <% }); %>
+          </div>
+        <!-- Students -->
+        <div class="container">
+            <div class="row">
+                <% studentsData.forEach((student, index) => { %>
+                <div class="col-md-3">
+                    <!-- Adjust the grid size based on your needs -->
+                    <div class="card mb-4">
+                        <img src="<%= student.image %>" class="card-img-top" alt="student image" />
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= student.fullname %>
+                            </h5>
+                            <p class="card-text">
+                                <strong>Last Time Present:</strong>
+                                <a href="">
+                                    <%= student.lastTimePresent %></a><br />
+                                
+                                <div class="d-flex gap-1 align-items-center">
+                                  <strong>Ranks:</strong>
+                                    <% student.ranks.forEach((rank, intex)=> {%>
+                                    <span class="badge bg-success">
+                                        <%= rank %>
+                                    </span><br />
+                                    <%})%>
+                                </div>
+                                <strong>Hours:</strong>
+                                <%= student.hours %>
+                            </p>
+                            <button type="button" class="btn btn-primary btn-sm">View profile</button>
+                        </div>
+                    </div>
+                </div>
+                <% if ((index + 1) % 4 === 0) { %>
+                <!-- Start a new row every 4 students -->
+            </div>
+            <div class="row">
+                <% } %>
+                <% }); %>
+            </div>
         </div>
-      </div>
     </main>
-  </body>
-  <script>
-    // Time function
-    function setTime() {
-      let currentDate = new Date();
-      // Format the date
-      let formattedDate = currentDate.toLocaleDateString("en-US", {
+</body>
+<script>
+// Time function
+function setTime() {
+    let currentDate = new Date();
+    // Format the date
+    let formattedDate = currentDate.toLocaleDateString("en-US", {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
-      });
+    });
 
-      // Update the content of the currentDate element using jQuery
-      $("#currentDate").text(formattedDate);
-    }
-    
-    setTime();
-    //
-  </script>
+    // Update the content of the currentDate element using jQuery
+    $("#currentDate").text(formattedDate);
+}
+
+setTime();
+//
+
+</script>
+
 </html>
