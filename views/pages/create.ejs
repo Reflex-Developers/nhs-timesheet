@@ -1,10 +1,288 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <%- include('templates/head')%>
-    </head>
-    <body>
-        <%- include('templates/header')%>
-        createPage
-    </body>
+  <head>
+    <%- include('templates/head') %>
+  </head>
+
+  <body>
+    <%- include('templates/header') %>
+    <main class="container" style="margin-top: 150px">
+      <!-- Top header -->
+      <div class="row justify-content-around">
+        <div class="col-md-auto">
+          <h1>Date entry</h1>
+        </div>
+        <div class="col-md-auto d-flex align-items-center">
+          <h4 id="currentDate" class="text-secondary"></h4>
+        </div>
+      </div>
+      <!-- Main part -->
+      <div class="row">
+        <!-- List Input -->
+        <div class="col-3 mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col d-flex justify-content-end gap-2">
+                <p class="m-0">All</p>
+                <input type="checkbox" name="all-checkbox" id="all-checkbox" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="list-group">
+                <label class="list-group-item">
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                  />
+                  First checkbox
+                </label>
+                <label class="list-group-item">
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                  />
+                  Second checkbox
+                </label>
+                <label class="list-group-item">
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                  />
+                  Third checkbox
+                </label>
+                <label class="list-group-item">
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                  />
+                  Fourth checkbox
+                </label>
+                <label class="list-group-item">
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    value=""
+                  />
+                  Fifth checkbox
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fields -->
+        <div class="col-9 mt-5 container">
+          <!-- Template chooser -->
+          <div class="row">
+            <div
+              class="form-group d-flex gap-5 justify-content-center"
+              id="templateSwitch"
+            >
+              <h5 for="template">Template:</h5>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="template"
+                  id="template1"
+                  value="default"
+                  checked
+                />
+                <label class="form-check-label" for="template1">Default</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="template"
+                  id="template2"
+                  value="custom"
+                />
+                <label class="form-check-label" for="template2">Custom</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entries -->
+          <div
+            class="row justify-content-center align-items-center g-2 py-2 mt-2"
+          >
+            <h5 class="text-center">First activity</h5>
+            <div class="col">
+              <div class="form-group">
+                <label for="text-service-1">Service</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="text-service-1"
+                  placeholder="Enter service"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="date-service-1">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date-service-1"
+                  placeholder="Enter date"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="text-place-1">Place</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="text-place-1"
+                  placeholder="Enter place"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="number-hours-1">Hours</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="number-hours-1"
+                  placeholder="Enter hours"
+                  step="0.01"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="row justify-content-center align-items-center g-2 py-2 mt-2"
+          >
+            <h5 class="text-center">Second activity</h5>
+            <div class="col">
+              <div class="form-group">
+                <label for="text-service-2">Service</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="text-service-2"
+                  placeholder="Enter service"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="date-service-2">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date-service-2"
+                  placeholder="Enter date"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="text-place-2">Place</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="text-place-2"
+                  placeholder="Enter place"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="number-hours-1">Hours</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="number-hours-2"
+                  placeholder="Enter hours"
+                  step="0.01"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <hr />
+            <div class="col-1">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-1">
+              <button
+                type="button"
+                class="btn btn-success"
+                id="autofill-button"
+                onclick="autofiller()"
+              >
+                Autofill
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('templates/footer') %>
+    <script>
+      // Global variables
+      const formattedDate = setTime();
+
+      // Wathcers
+      // Template button
+      $("input[name='template']").change(function () {
+        getTemplateValue();
+      });
+      // ENDBLOCK
+
+      // FUNCTIONS
+
+      // Time function
+      function setTime() {
+        let currentDate = new Date();
+        // Format the date
+        let formattedDate = currentDate.toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+        $("#currentDate").text(formattedDate);
+
+        return formattedDate;
+      }
+
+      // Autofill
+      function autofiller() {
+        let selectedTemplate = $("input[name='template']:checked").val();
+
+        if (selectedTemplate === "default") {
+          // First activity
+          $("#text-service-1").val("Meeting");
+          $("#text-place-1").val("Cafeteria");
+          $("#number-hours-1").val(0.25);
+
+          // Set date 1
+          let currentDate = new Date();
+          let formattedDate = currentDate.toISOString().split("T")[0]; // Format date as "YYYY-MM-DD"
+          $("#date-service-1").val(formattedDate);
+
+          // Sencond activity
+          $("#text-service-2").val("!!Stuff!!");
+          $("#text-place-2").val("Room 216");
+          $("#number-hours-2").val(0.75);
+
+          // Set date 2
+          $("#date-service-2").val(formattedDate);
+        }
+      }
+
+      // Template position
+    </script>
+  </body>
 </html>
