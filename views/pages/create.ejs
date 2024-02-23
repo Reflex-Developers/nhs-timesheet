@@ -22,57 +22,39 @@
         <div class="col-3 mt-5">
           <div class="container">
             <div class="row">
-              <div class="col d-flex justify-content-end gap-2">
-                <p class="m-0">Select all</p>
-                <!-- All checkbox-button -->
-                <input type="checkbox" name="all-checkbox" id="all-checkbox"/>
+              <div class="col d-flex justify-content-between">
+                <h5>Students</h5>
+                <div class="d-flex gap-2 align-items-center">
+                  <p class="m-0">Select all</p>
+                  <!-- All checkbox-button -->
+                  <input
+                    type="checkbox"
+                    name="all-checkbox"
+                    id="all-checkbox"
+                  />
+                </div>
               </div>
             </div>
             <div class="row">
-              <div class="list-group">
-                <label class="list-group-item">
-                  <!-- TODO base it from loop -->
-                  <input
-                    class="form-check-input me-1 nameCheckbox"
-                    type="checkbox"
-                  />
-                  First checkbox
-                </label>
-                <label class="list-group-item">
-                  <input
-                    class="form-check-input me-1 nameCheckbox"
-                    type="checkbox"
-                  />
-                  Second checkbox
-                </label>
-                <label class="list-group-item">
-                  <input
-                    class="form-check-input me-1 nameCheckbox"
-                    type="checkbox"
-                  />
-                  Third checkbox
-                </label>
-                <label class="list-group-item">
-                  <input
-                    class="form-check-input me-1 nameCheckbox"
-                    type="checkbox"
-                  />
-                  Fourth checkbox
-                </label>
-                <label class="list-group-item">
-                  <input
-                    class="form-check-input me-1 nameCheckbox"
-                    type="checkbox"
-                  />
-                  Fifth checkbox
-                </label>
+              <div class="list-group pb-5">
+
+                <% students.forEach((student, index)=>{ %>
+
+                  <label class="list-group-item">
+                    <input
+                      class="form-check-input me-1 nameCheckbox"
+                      type="checkbox"
+                    />
+                    <%= student%>
+                  </label>
+
+                <% })%>
+                
               </div>
             </div>
           </div>
         </div>
-        <!-- Fields -->
         <div class="col-9 mt-5 container">
-          <!-- Template chooser -->
           <div class="row">
             <div
               class="form-group d-flex gap-5 justify-content-center"
@@ -248,9 +230,9 @@
       });
 
       // AutoFill
-      $("#autofill-button").click(()=>{
+      $("#autofill-button").click(() => {
         autofiller();
-      })
+      });
 
       // ENDBLOCK
       // FUNCTIONS
