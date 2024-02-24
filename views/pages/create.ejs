@@ -37,54 +37,22 @@
             </div>
             <div class="row">
               <div class="list-group pb-5">
-
                 <% students.forEach((student, index)=>{ %>
 
-                  <label class="list-group-item">
-                    <input
-                      class="form-check-input me-1 nameCheckbox"
-                      type="checkbox"
-                    />
-                    <%= student%>
-                  </label>
+                <label class="list-group-item">
+                  <input
+                    class="form-check-input me-1 nameCheckbox"
+                    type="checkbox"
+                  />
+                  <%= student%>
+                </label>
 
                 <% })%>
-                
               </div>
             </div>
           </div>
         </div>
         <div class="col-9 mt-5 container">
-          <div class="row">
-            <div
-              class="form-group d-flex gap-5 justify-content-center"
-              id="templateSwitch"
-            >
-              <h5 for="template">Template:</h5>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="template"
-                  id="template1"
-                  value="default"
-                  checked
-                />
-                <label class="form-check-label" for="template1">Default</label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="template"
-                  id="template2"
-                  value="custom"
-                />
-                <label class="form-check-label" for="template2">Custom</label>
-              </div>
-            </div>
-          </div>
-
           <!-- Entries -->
           <!-- First activity -->
           <div
@@ -140,6 +108,8 @@
           <!-- Second activity -->
           <div
             class="row justify-content-center align-items-center g-2 py-2 mt-2"
+            id="secondActivity"
+            style="display: none;"
           >
             <h5 class="text-center">Second activity</h5>
             <div class="col">
@@ -195,14 +165,12 @@
           <!-- Submit part -->
           <div class="row mt-5">
             <hr />
-            <div class="col d-flex justify-content-center">
-              <button
-                type="button"
-                class="btn btn-dark"
-                id="autofill-button"
-                onclick="autofiller()"
-              >
-                Autofill
+            <div class="col d-flex gap-3 justify-content-center">
+              <button type="button" class="btn btn-dark" id="autofill-button">
+                Template
+              </button>
+              <button type="button" id="resetButton" class="btn btn-danger">
+                Reset
               </button>
             </div>
             <div class="col d-flex justify-content-center">
@@ -234,6 +202,11 @@
         autofiller();
       });
 
+      // Reset Autofill
+      $("#resetButton").click(()=>{
+        resetAutofiller();
+      });
+
       // ENDBLOCK
       // FUNCTIONS
 
@@ -253,28 +226,40 @@
       }
 
       // Autofill
+
+      function resetAutofiller() {
+        $("#text-service-1").val(null);
+        $("#text-place-1").val(null);
+        $("#number-hours-1").val(null);
+        $("#date-service-1").val(null);
+        $("#text-service-2").val(null);
+        $("#text-place-2").val(null);
+        $("#number-hours-2").val(null);
+        $("#date-service-2").val(null);
+        $("#secondActivity").css("display", "none");
+
+      }
+
       function autofiller() {
-        let selectedTemplate = $("input[name='template']:checked").val();
+        // First activity
+        $("#text-service-1").val("Meeting");
+        $("#text-place-1").val("Cafeteria");
+        $("#number-hours-1").val(0.25);
 
-        if (selectedTemplate === "default") {
-          // First activity
-          $("#text-service-1").val("Meeting");
-          $("#text-place-1").val("Cafeteria");
-          $("#number-hours-1").val(0.25);
+        // Set date 1
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split("T")[0]; // Format date as "YYYY-MM-DD"
+        $("#date-service-1").val(formattedDate);
 
-          // Set date 1
-          let currentDate = new Date();
-          let formattedDate = currentDate.toISOString().split("T")[0]; // Format date as "YYYY-MM-DD"
-          $("#date-service-1").val(formattedDate);
+        // Second activity
+        $("#text-service-2").val("!!Stuff!!");
+        $("#text-place-2").val("Room 216");
+        $("#number-hours-2").val(0.75);
 
-          // Second activity
-          $("#text-service-2").val("!!Stuff!!");
-          $("#text-place-2").val("Room 216");
-          $("#number-hours-2").val(0.75);
+        // Set date 2
+        $("#date-service-2").val(formattedDate);
 
-          // Set date 2
-          $("#date-service-2").val(formattedDate);
-        }
+        $("#secondActivity").css("display", "flex");
       }
 
       // Set all checkboxes to be checked or unchecked based on the "All" checkbox
