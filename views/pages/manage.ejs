@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <%- include('templates/head') %>
+  </head>
+  <body>
+    <%- include('templates/header') %>
+    <div style="margin-top: 101px"></div>
+
+    <!-- Main Content Container -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <h5
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            ></h5>
+            <ul class="nav flex-column gap-2">
+              <li class="nav-item">
+                <button class="btn btn-secondary w-100" id="editStudents-btn">
+                  Edit students
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-secondary w-100" id="addStudents-btn">
+                  Add students
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-secondary w-100" id="logs-btn">
+                  Logs
+                </button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-2">
+          <h1 class="mb-5">Manager</h1>
+          <section id="PageView">
+            <div id="studentsEditPage"><%- include('components/studentsEdit') %></div>
+            <div id="studentsAddPage" style="display: none;"><%- include('components/studentAdd') %></div>
+            <div id="logsPage" style="display: none;"><%- include('components/logs') %></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <%- include('templates/footer') %>
+  </body>
+  <script>
+    $("#editStudents-btn").click(() => {
+        $("#studentsEditPage").css("display", "block")
+        $("#logsPage").css("display", "none")
+        $("#studentsAddPage").css("display", "none")
+    });
+    $("#addStudents-btn").click(() => {
+        $("#studentsEditPage").css("display", "none")
+        $("#logsPage").css("display", "none")
+        $("#studentsAddPage").css("display", "block")
+    });
+    $("#logs-btn").click(() => {
+        $("#studentsEditPage").css("display", "none")
+        $("#logsPage").css("display", "block")
+        $("#studentsAddPage").css("display", "none")
+    });
+  </script>
+</html>

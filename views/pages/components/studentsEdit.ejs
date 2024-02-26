@@ -1,0 +1,35 @@
+<div
+    class="container"
+>
+    <h3>Edit students</h3>
+    <div class="row">
+        <% studentsData.forEach((student, index) => { %>
+        <div class="col-md-3">
+            <!-- Adjust the grid size based on your needs -->
+            <div class="card mb-4">
+                <img src="<%= student.image %>" class="card-img-top" alt="student image" />
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= student.fullname %>
+                    </h5>
+                    <p class="card-text">
+                        <div class="d-flex gap-1 align-items-center">
+                          <strong>Ranks:</strong>
+                            <% student.ranks.forEach((rank, intex)=> {%>
+                            <span class="badge bg-success">
+                                <%= rank %>
+                            </span><br />
+                            <%})%>
+                        </div>
+                    </p>
+                    <button type="button" class="btn btn-danger btn-sm">Edit profile</button>
+                </div>
+            </div>
+        </div>
+        <% if ((index + 1) % 4 === 0) { %>
+    </div>
+    <div class="row">
+        <% } %>
+        <% }); %>
+    </div>    
+</div>

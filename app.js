@@ -21,10 +21,12 @@ app.use(expressLayouts);
 // Routes
 let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
+let manageRouter = require("./routes/manage");
 let createRouter = require("./routes/create");
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use('/manage', manageRouter);
 app.use('/create', createRouter);
 
 // END BLOCK

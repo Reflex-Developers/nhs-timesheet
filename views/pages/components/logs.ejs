@@ -1,0 +1,35 @@
+<div class="container">
+  <h3>Logs</h3>
+  <div class="container mt-4">
+    <% crudLogs.forEach((log, index) => {%>
+    <div class="row justify-content-center align-items-center g-2 py-2">
+      <div class="card">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <%=log.crud%>
+          </div>
+          <button
+            class="btn btn-link"
+            data-toggle="collapse"
+            data-target="#cardDescription"
+            aria-expanded="true"
+            aria-controls="cardDescription"
+          >
+            Show Description
+          </button>
+        </div>
+        <div class="collapse" id="cardDescription">
+          <div class="card-body">
+            <%=log.description%>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          Operator: <%=log.operator%>, Date: <%=log.date%>
+        </div>
+      </div>
+    </div>
+    <%})%>
+  </div>
+</div>
